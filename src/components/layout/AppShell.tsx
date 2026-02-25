@@ -254,7 +254,9 @@ export function AppShell() {
                                 <NavLink
                                     to="/app"
                                     end
-                                    className={({ isActive }) => cn(tabBase, tabIdle, isActive && "bg-white/10 text-white border-white/20")}
+                                    className={({ isActive }) =>
+                                        cn(tabBase, tabIdle, isActive && "bg-white/10 text-white border-white/20")
+                                    }
                                 >
                                     Home
                                 </NavLink>
@@ -266,7 +268,9 @@ export function AppShell() {
                                         onClick={toggleAudits}
                                         className={cn(
                                             "px-4 py-2 rounded-xl text-sm font-medium inline-flex items-center gap-1 transition whitespace-nowrap",
-                                            isHome && !scrolled ? "text-white/90 hover:text-white hover:bg-white/10" : "text-slate-200 hover:text-white hover:bg-white/10"
+                                            isHome && !scrolled
+                                                ? "text-white/90 hover:text-white hover:bg-white/10"
+                                                : "text-slate-200 hover:text-white hover:bg-white/10"
                                         )}
                                     >
                                         Audits & Analysis
@@ -326,11 +330,16 @@ export function AppShell() {
                                         onClick={toggleWorkEfficiency}
                                         className={cn(
                                             "px-4 py-2 rounded-xl text-sm font-medium inline-flex items-center gap-1 transition whitespace-nowrap",
-                                            isHome && !scrolled ? "text-white/90 hover:text-white hover:bg-white/10" : "text-slate-200 hover:text-white hover:bg-white/10"
+                                            isHome && !scrolled
+                                                ? "text-white/90 hover:text-white hover:bg-white/10"
+                                                : "text-slate-200 hover:text-white hover:bg-white/10"
                                         )}
                                     >
                                         Work Efficiency
-                                        <ChevronDown size={16} className={cn("transition-transform", openSubGroup === "Work Efficiency" && "rotate-180")} />
+                                        <ChevronDown
+                                            size={16}
+                                            className={cn("transition-transform", openSubGroup === "Work Efficiency" && "rotate-180")}
+                                        />
                                     </button>
 
                                     {openSubGroup === "Work Efficiency" && (
@@ -360,7 +369,9 @@ export function AppShell() {
                                 <NavLink
                                     to="/app/faq"
                                     onClick={guardNav("/app/faq")}
-                                    className={({ isActive }) => cn(tabBase, tabIdle, isActive && "bg-white/10 text-white border-white/20")}
+                                    className={({ isActive }) =>
+                                        cn(tabBase, tabIdle, isActive && "bg-white/10 text-white border-white/20")
+                                    }
                                 >
                                     <span className="inline-flex items-center gap-2 whitespace-nowrap">
                                         <HelpCircle size={16} className="text-slate-400" />
@@ -376,7 +387,9 @@ export function AppShell() {
                                 iconOnly
                                 buttonClassName={cn(
                                     "rounded-xl border px-3 py-2 text-sm font-medium transition whitespace-nowrap",
-                                    isHome && !scrolled ? "border-white/20 bg-white/10 text-white hover:bg-white/15" : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10 hover:text-white"
+                                    isHome && !scrolled
+                                        ? "border-white/20 bg-white/10 text-white hover:bg-white/15"
+                                        : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10 hover:text-white"
                                 )}
                             />
 
@@ -384,7 +397,9 @@ export function AppShell() {
                                 onClick={handleAuthClick}
                                 className={cn(
                                     "hidden sm:inline-flex rounded-xl border px-3 py-2 text-sm font-medium transition whitespace-nowrap",
-                                    isHome && !scrolled ? "border-white/20 bg-white/10 text-white hover:bg-white/15" : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10 hover:text-white"
+                                    isHome && !scrolled
+                                        ? "border-white/20 bg-white/10 text-white hover:bg-white/15"
+                                        : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10 hover:text-white"
                                 )}
                                 type="button"
                             >
@@ -396,7 +411,9 @@ export function AppShell() {
                                 onClick={() => setMobileOpen(true)}
                                 className={cn(
                                     "lg:hidden rounded-xl border p-2 transition",
-                                    isHome && !scrolled ? "border-white/20 bg-white/10 text-white hover:bg-white/15" : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10 hover:text-white"
+                                    isHome && !scrolled
+                                        ? "border-white/20 bg-white/10 text-white hover:bg-white/15"
+                                        : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10 hover:text-white"
                                 )}
                             >
                                 <Menu size={18} />
@@ -423,7 +440,13 @@ export function AppShell() {
                             style={{ transform: `translateX(-${heroIndex * 100}%)` }}
                         >
                             {heroImages.map((src) => (
-                                <img key={src} src={src} alt="ICQA Hero" className="w-full h-auto block m-0 p-0 shrink-0" draggable={false} />
+                                <img
+                                    key={src}
+                                    src={src}
+                                    alt="ICQA Hero"
+                                    className="w-full h-auto block m-0 p-0 shrink-0"
+                                    draggable={false}
+                                />
                             ))}
                         </div>
                     </section>
