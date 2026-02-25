@@ -1,15 +1,14 @@
 import React, { useMemo, useState } from "react";
 import {
-    BadgeCheck,
+
     FileSpreadsheet,
     Info,
     Search,
-    ShieldAlert,
+
     Sparkles,
     TrendingUp,
     Upload,
     Users,
-    AlertTriangle,
 } from "lucide-react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { apiPostMultipart } from "../../../lib/api"; // ✅ gerekirse ../../.. sayısını düzelt

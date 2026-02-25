@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { Activity } from "lucide-react";
 
@@ -97,8 +97,8 @@ export function OperationalOverviewPage() {
                                 key={k}
                                 onClick={() => setRange(k)}
                                 className={`px-5 py-2 text-xs font-bold rounded-lg transition ${range === k
-                                        ? "bg-white text-black"
-                                        : "text-zinc-500 hover:text-white"
+                                    ? "bg-white text-black"
+                                    : "text-zinc-500 hover:text-white"
                                     }`}
                             >
                                 {k.toUpperCase()}
