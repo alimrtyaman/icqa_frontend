@@ -65,9 +65,7 @@ export function LoginModal() {
                         {loading ? "Signing in..." : "Sign in"}
                     </button>
 
-                    <p className="text-xs text-slate-400">
-                        (Şimdilik demo login. Backend JWT gelince gerçek auth bağlarız.)
-                    </p>
+
                 </form>
             </div>
         </div>

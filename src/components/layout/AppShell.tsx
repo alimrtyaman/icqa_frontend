@@ -488,9 +488,7 @@ export function AppShell() {
                                 {loading ? "Signing in..." : "Login"}
                             </button>
 
-                            <div className="text-[11px] text-slate-500">
-                                Backend JWT login → token saved to <span className="text-slate-300">localStorage(access_token)</span>
-                            </div>
+
                         </form>
                     </div>
                 </div>
