@@ -1,8 +1,6 @@
 import React, { useMemo, useState } from "react";
 import {
     BadgeCheck,
-    CheckCircle2,
-    ClipboardList,
     FileSpreadsheet,
     Info,
     Search,
@@ -74,56 +72,7 @@ function Pill({
 }
 
 /** (Artık kullanılmıyor ama istersen ileride geri eklemek için bırakıyorum) */
-function RiskBanner({ s }: { s: SessionStats }) {
-    const { discrepancies, accuracyPct } = s;
 
-    const level =
-        discrepancies === 0 ? "LOW" : accuracyPct >= 98 ? "MEDIUM" : accuracyPct >= 95 ? "HIGH" : "CRITICAL";
-
-    const tone: "good" | "warn" | "danger" = level === "LOW" ? "good" : level === "MEDIUM" ? "warn" : "danger";
-
-    const icon =
-        tone === "good" ? (
-            <BadgeCheck size={18} className="text-emerald-300" />
-        ) : tone === "warn" ? (
-            <ShieldAlert size={18} className="text-amber-300" />
-        ) : (
-            <AlertTriangle size={18} className="text-rose-300" />
-        );
-
-    const msg =
-        level === "LOW"
-            ? "No mismatches found."
-            : level === "MEDIUM"
-                ? "Minor mismatches detected."
-                : level === "HIGH"
-                    ? "Mismatch risk is noticeable."
-                    : "Critical mismatch risk.";
-
-    return (
-        <div
-            className={cn(
-                "rounded-2xl border bg-white/[0.03] p-4",
-                tone === "good"
-                    ? "border-emerald-500/20"
-                    : tone === "warn"
-                        ? "border-amber-500/20"
-                        : "border-rose-500/20"
-            )}
-        >
-            <div className="flex items-start gap-3">
-                <div className="mt-0.5">{icon}</div>
-                <div className="flex-1">
-                    <div className="flex items-center justify-between gap-3">
-                        <div className="text-sm font-semibold text-slate-100">Risk</div>
-                        <Pill tone={tone}>{level}</Pill>
-                    </div>
-                    <div className="mt-1 text-sm text-slate-300">{msg}</div>
-                </div>
-            </div>
-        </div>
-    );
-}
 
 /** ✅ Overview Donut (3 renk: Locations / SKU / Avg BPH) */
 const LOC_COLOR = "#2F6BFF";
