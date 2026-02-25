@@ -1,5 +1,6 @@
 // src/components/layout/AppShell.tsx
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { ReactElement, FormEvent, MouseEvent } from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
     AlertTriangle,
@@ -22,8 +23,6 @@ import {
 
 import { SettingsDialog } from "../settings/SettingsDialog";
 import { Footer } from "./Footer";
-
-// ✅ IMPORTANT: bunu kendi path’ine göre ayarla
 import { useAuth } from "../auth/AuthProvider";
 
 function cn(...classes: (string | false | null | undefined)[]) {
@@ -33,7 +32,7 @@ function cn(...classes: (string | false | null | undefined)[]) {
 type NavItem = {
     to: string;
     label: string;
-    icon: JSX.Element;
+    icon: ReactElement;
 };
 
 type NavGroup = {
@@ -102,7 +101,6 @@ export function AppShell() {
             {
                 title: "Work Efficiency",
                 items: [
-                    // ✅ NEW
                     { to: "/app/efficiency/overview", label: "Operational Overview", icon: <BarChart3 size={16} /> },
                     { to: "/app/efficiency/libiao", label: "Libiao", icon: <BarChart3 size={16} /> },
                     { to: "/app/efficiency/sorting", label: "Sorting", icon: <ArrowLeftRight size={16} /> },
@@ -170,7 +168,7 @@ export function AppShell() {
 
     // ✅ Guard: token yoksa protected linke gitme, popup aç
     function guardNav(to: string) {
-        return (e: React.MouseEvent) => {
+        return (e: MouseEvent) => {
             if (!isAuthed) {
                 e.preventDefault();
                 openLogin(to);
@@ -208,7 +206,7 @@ export function AppShell() {
 
     const workEfficiencyGroup = groups.find((g) => g.title === "Work Efficiency");
 
-    async function onSubmitLogin(e: React.FormEvent) {
+    async function onSubmitLogin(e: FormEvent) {
         e.preventDefault();
         setErr(null);
         setLoading(true);
@@ -426,19 +424,12 @@ export function AppShell() {
                             style={{ transform: `translateX(-${heroIndex * 100}%)` }}
                         >
                             {heroImages.map((src) => (
-                                <img
-                                    key={src}
-                                    src={src}
-                                    alt="ICQA Hero"
-                                    className="w-full h-auto block m-0 p-0 shrink-0"
-                                    draggable={false}
-                                />
+                                <img key={src} src={src} alt="ICQA Hero" className="w-full h-auto block m-0 p-0 shrink-0" draggable={false} />
                             ))}
                         </div>
                     </section>
                 )}
 
-                {/* ✅ Outlet artık Home'da da görünür */}
                 <main className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 pt-6">
                     <Outlet />
                 </main>
